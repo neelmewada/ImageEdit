@@ -19,20 +19,20 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cApp.h" />
-    <ClInclude Include="cMainFrame.h" />
-    <ClInclude Include="cImagePanel.h" />
-    <ClInclude Include="cSideBarWidget.h" />
-    <ClInclude Include="cSidePanel.h" />
-    <ClInclude Include="include.h" />
-    <ClInclude Include="utils.h" />
+    <ClInclude Include="src\cApp.h" />
+    <ClInclude Include="src\cMainFrame.h" />
+    <ClInclude Include="src\cImagePanel.h" />
+    <ClInclude Include="src\cSideBarWidget.h" />
+    <ClInclude Include="src\cSidePanel.h" />
+    <ClInclude Include="src\include.h" />
+    <ClInclude Include="src\utils.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cApp.cpp" />
-    <ClCompile Include="cMainFrame.cpp" />
-    <ClCompile Include="cImagePanel.cpp" />
-    <ClCompile Include="cSideBarWidget.cpp" />
-    <ClCompile Include="cSidePanel.cpp" />
+    <ClCompile Include="src\cApp.cpp" />
+    <ClCompile Include="src\cMainFrame.cpp" />
+    <ClCompile Include="src\cImagePanel.cpp" />
+    <ClCompile Include="src\cSideBarWidget.cpp" />
+    <ClCompile Include="src\cSidePanel.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>

@@ -15,42 +15,42 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="cImagePanel.h">
+    <ClInclude Include="src\cImagePanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cApp.h">
+    <ClInclude Include="src\cApp.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cMainFrame.h">
+    <ClInclude Include="src\cMainFrame.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cSidePanel.h">
+    <ClInclude Include="src\cSidePanel.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="include.h">
+    <ClInclude Include="src\include.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="cSideBarWidget.h">
+    <ClInclude Include="src\cSideBarWidget.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="utils.h">
+    <ClInclude Include="src\utils.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="cApp.cpp">
+    <ClCompile Include="src\cApp.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cMainFrame.cpp">
+    <ClCompile Include="src\cMainFrame.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cImagePanel.cpp">
+    <ClCompile Include="src\cImagePanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cSidePanel.cpp">
+    <ClCompile Include="src\cSidePanel.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="cSideBarWidget.cpp">
+    <ClCompile Include="src\cSideBarWidget.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
