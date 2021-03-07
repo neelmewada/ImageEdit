@@ -21,6 +21,7 @@ cSideBarWidget::cSideBarWidget(cSidePanel* parent, wxString title, cImagePanel* 
 
 	pos += wxPoint(margin.x, margin.y);
 	size -= wxSize(margin.width + margin.x, margin.height + margin.y);
+	wxSize _size = size;
 	size.y = GetWidgetHeight();
 
 	SetPosition(pos);
@@ -28,13 +29,26 @@ cSideBarWidget::cSideBarWidget(cSidePanel* parent, wxString title, cImagePanel* 
 
 	SetBackgroundColour(wxColour(242, 242, 242));
 
+	m_mainSizer = new wxBoxSizer(wxVERTICAL);
+	m_mainSizer->SetMinSize(_size);
+
 	m_headerField = new cHeaderField(this, wxID_ANY, title, wxRect(10, 5, 10, 5));
+
+	m_mainSizer->Add(m_headerField, 0, wxEXPAND | wxTOP | wxLEFT | wxRIGHT, 0);
+
+	SetSizerAndFit(m_mainSizer);
 }
 
 cSideBarWidget::~cSideBarWidget()
 {
 }
 
+void cSideBarWidget::AddSizerElement(wxWindow* element, int proportion, int flag, int border)
+{
+	m_mainSizer->Add(element, proportion, flag, border);
+
+	SetSizerAndFit(m_mainSizer);
+}
 
 bool cSideBarWidget::ApplyEffect(wxImage &image)
 {

@@ -1,5 +1,6 @@
 #include "cImagePanel.h"
 
+
 BEGIN_EVENT_TABLE(cImagePanel, wxPanel)
 // some useful events
 /*
@@ -25,11 +26,23 @@ cImagePanel::cImagePanel(wxFrame* parent, wxWindowID windid, wxString file, wxBi
 	m_fileName = file;
 	m_format = format;
 	m_parent = parent;
+
+	wxSize windSize = GetClientSize();
 	
 	if (m_fileName != wxEmptyString)
 	{
 		image = wxImage(m_fileName, m_format);
-		bitmap = wxBitmap(image);
+		wxSize imgSize = image.GetSize();
+		
+		if (imgSize.x > windSize.x || imgSize.y > windSize.y) {
+			image = image.Rescale(windSize.x, windSize.y, wxIMAGE_QUALITY_HIGH);
+			bitmap = wxBitmap(image);
+			wxMessageBox("Resized!");
+		}
+		else
+		{
+			bitmap = wxBitmap(image);
+		}
 	}
 }
 

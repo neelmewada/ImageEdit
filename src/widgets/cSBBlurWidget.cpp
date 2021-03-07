@@ -15,9 +15,12 @@ cSBBlurWidget::cSBBlurWidget(cSidePanel* sidePanel, cImagePanel* imagePanel, wxS
 
 	wxStaticText* amountLabel = new wxStaticText(this, wxID_ANY, "Amount", wxPoint(10, 35), wxSize(size.x / 3, 20));
 
-	m_textInput = new wxTextCtrl(this, wxID_ANY, "0", wxPoint(10 + size.x / 3, 35), wxSize(size.x * 2 / 3 - 20, 20));
+	m_textInput = new wxTextCtrl(this, wxID_ANY, "3", wxPoint(10 + size.x / 3, 35), wxSize(size.x * 2 / 3 - 20, 20));
 	m_textInput->SetValidator(wxFloatingPointValidator<float>());
 
+	AddSizerElement(amountLabel, 0, wxEXPAND);
+	AddSizerElement(m_textInput, 0, wxEXPAND);
+	
 	wxButton* btn = new wxButton(this, 15001, "Apply", wxPoint(10, 65), wxSize(size.x - 20, 30));
 }
 
@@ -32,9 +35,11 @@ int cSBBlurWidget::GetWidgetHeight()
 
 bool cSBBlurWidget::ApplyEffect(wxImage& image)
 {
+	float value = std::stof(m_textInput->GetValue().ToStdString());
+
 	Mat mat = mat_from_wx(image);
 	Mat matBlur;
-	GaussianBlur(mat, matBlur, Size(7, 7), 7, 0);
+	GaussianBlur(mat, matBlur, Size(7, 7), value, 0);
 	image = wx_from_mat(matBlur);
 
 	return true;

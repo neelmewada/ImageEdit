@@ -16,7 +16,9 @@ END_EVENT_TABLE()
 cMainFrame::cMainFrame() : wxFrame(nullptr, wxID_ANY, "ImageEdit", wxPoint(30, 30), DEFAULT_WIN_SIZE)
 {
 	this->m_backgroundColour = wxColour("white");
-	
+
+	Maximize();
+
 	m_menuBar = new wxMenuBar();
 	SetMenuBar(m_menuBar);
 

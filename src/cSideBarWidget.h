@@ -19,6 +19,10 @@ protected:
 	cHeaderField* m_headerField;
 	wxTextCtrl* m_textInput;
 
+	wxBoxSizer* m_mainSizer;
+
+	void AddSizerElement(wxWindow* element, int proportion = 0, int flag = 0, int border = 0);
+
 public:
 	wxString title;
 
