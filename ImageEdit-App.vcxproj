@@ -19,18 +19,23 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\widgets\cSBBlurWidget.h" />
     <ClInclude Include="src\cApp.h" />
     <ClInclude Include="src\cMainFrame.h" />
     <ClInclude Include="src\cImagePanel.h" />
+    <ClInclude Include="src\controls\cHeaderField.h" />
     <ClInclude Include="src\cSideBarWidget.h" />
     <ClInclude Include="src\cSidePanel.h" />
     <ClInclude Include="src\include.h" />
     <ClInclude Include="src\utils.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\utils.cpp" />
+    <ClCompile Include="src\widgets\cSBBlurWidget.cpp" />
     <ClCompile Include="src\cApp.cpp" />
     <ClCompile Include="src\cMainFrame.cpp" />
     <ClCompile Include="src\cImagePanel.cpp" />
+    <ClCompile Include="src\controls\cHeaderField.cpp" />
     <ClCompile Include="src\cSideBarWidget.cpp" />
     <ClCompile Include="src\cSidePanel.cpp" />
   </ItemGroup>

@@ -23,6 +23,11 @@ public:
 	wxImage image;
 
 public:
+	wxBitmapType GetCurrentFormat();
+	bool SaveFileToPath(wxString path);
+	bool LoadImageFromPath(wxString path);
+	bool IsImageLoaded();
+
 	void SetImageMargin(int left, int top, int right, int bottom);
 	void paintEvent(wxPaintEvent& evt);
 	void paintNow();
@@ -30,6 +35,9 @@ public:
 
 	void render(wxDC& dc);
 	void OnResize(wxSizeEvent& evt);
+
+private:
+	void Resize();
 
 	DECLARE_EVENT_TABLE()
 };

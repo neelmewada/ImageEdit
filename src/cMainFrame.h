@@ -17,11 +17,13 @@ private:
 
 	cImagePanel* m_imagePanel;
 	cSidePanel* m_sidePanel;
+	wxString m_currentSavePath;
 
 private:
 	void OnMenuNew(wxCommandEvent& evt);
 	void OnMenuOpen(wxCommandEvent& evt);
 	void OnMenuSave(wxCommandEvent& evt);
+	void OnMenuSaveAs(wxCommandEvent& evt);
 	void OnMenuExit(wxCommandEvent& evt);
 
 public:

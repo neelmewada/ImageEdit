@@ -37,6 +37,27 @@ cImagePanel::~cImagePanel()
 {
 }
 
+bool cImagePanel::IsImageLoaded()
+{
+	return image.IsOk();
+}
+
+bool cImagePanel::LoadImageFromPath(wxString path)
+{
+	image = wxImage(path);
+	RefreshImage();
+	Resize();
+	return image.IsOk();
+}
+
+bool cImagePanel::SaveFileToPath(wxString path)
+{
+	if (!bitmap.IsOk())
+		return false;
+	bitmap.SaveFile(path, m_format);
+	return true;
+}
+
 void cImagePanel::RefreshImage()
 {
 	bitmap = wxBitmap(image);
@@ -48,10 +69,15 @@ void cImagePanel::OnResize(wxSizeEvent &evt)
 	if (!bitmap.IsOk())
 		return;
 
+	Resize();
+}
+
+void cImagePanel::Resize()
+{
 	wxSize newSize = m_parent->GetClientSize();
 	wxSize imageSize = bitmap.GetSize();
 
-	m_imagePos = wxPoint(m_imageMargin.x + newSize.x / 2 - imageSize.x / 2 - m_imageMargin.width, 
+	m_imagePos = wxPoint(m_imageMargin.x + newSize.x / 2 - imageSize.x / 2 - m_imageMargin.width,
 		m_imageMargin.y + newSize.y / 2 - imageSize.y / 2 - m_imageMargin.height);
 	Refresh();
 }
@@ -77,4 +103,10 @@ void cImagePanel::SetImageMargin(int left, int top, int right, int bottom)
 {
 	m_imageMargin = wxRect(left, top, right, bottom);
 }
+
+wxBitmapType cImagePanel::GetCurrentFormat()
+{
+	return m_format;
+}
+
 

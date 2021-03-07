@@ -1,5 +1,6 @@
 #include "cSidePanel.h"
-#include "cSideBarWidget.h"
+
+#include "widgets/cSBBlurWidget.h"
 
 BEGIN_EVENT_TABLE(cSidePanel, wxPanel)
 EVT_PAINT(cSidePanel::OnPaint)
@@ -11,9 +12,13 @@ cSidePanel::cSidePanel(wxFrame* parent, cImagePanel* imagePanel, wxWindowID wini
 	m_imagePanel = imagePanel;
 
 	m_mainSizer = new wxBoxSizer(wxVERTICAL);
-	cSideBarWidget* widget = new cSideBarWidget(this, "Blur", m_imagePanel, wxID_ANY, minSize, wxRect(20, 20, 20, 10));
-	
-	//SetSizerAndFit(m_mainSizer);
+	cSBBlurWidget* widget = new cSBBlurWidget(this, m_imagePanel, minSize);
+	cSBBlurWidget* widget2 = new cSBBlurWidget(this, m_imagePanel, minSize);
+
+	m_mainSizer->Add(widget, 0, wxEXPAND | wxTOP | wxLEFT | wxRIGHT, 20);
+	m_mainSizer->Add(widget2, 0, wxEXPAND | wxALL, 20);
+
+	SetSizerAndFit(m_mainSizer);
 }
 
 cSidePanel::~cSidePanel()
@@ -39,7 +44,7 @@ void cSidePanel::Render(wxDC& dc)
 	wxPoint pos = GetPosition();
 	wxSize size = GetSize();
 	
-	const wxPen pen = wxPen(wxColour(220, 220, 220), 4);
+	const wxPen pen = wxPen(wxColour(235, 235, 235), 4);
 	dc.SetPen(pen);
 
 	dc.DrawLine(wxPoint(0, 0), wxPoint(0, size.y));
