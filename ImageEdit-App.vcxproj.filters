@@ -45,6 +45,9 @@
     <ClInclude Include="src\controls\cFloatField.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="src\controls\cIntField.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\cApp.cpp">
@@ -72,6 +75,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\controls\cFloatField.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\controls\cIntField.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

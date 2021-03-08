@@ -4,7 +4,7 @@
 #include "../utils.h"
 
 cSBBlurWidget::cSBBlurWidget(cSidePanel* sidePanel, cImagePanel* imagePanel, wxSize minSize) : 
-	cSideBarWidget(sidePanel, "Blur", imagePanel, wxID_ANY, minSize)
+	cSideBarWidget(sidePanel, "Gaussian Blur", imagePanel, wxID_ANY, minSize)
 {
 	m_parent = sidePanel;
 	m_imagePanel = imagePanel;
@@ -12,34 +12,44 @@ cSBBlurWidget::cSBBlurWidget(cSidePanel* sidePanel, cImagePanel* imagePanel, wxS
 
 	wxPoint pos = GetPosition();
 	wxSize size = GetClientSize();
-
-	wxStaticText* amountLabel = new wxStaticText(this, wxID_ANY, "Amount", wxPoint(10, 35), wxSize(size.x / 3, 20));
-
-	m_textInput = new wxTextCtrl(this, wxID_ANY, "3", wxPoint(10 + size.x / 3, 35), wxSize(size.x * 2 / 3 - 20, 20));
-	m_textInput->SetValidator(wxFloatingPointValidator<float>());
-
-	AddSizerElement(amountLabel, 0, wxEXPAND);
-	AddSizerElement(m_textInput, 0, wxEXPAND);
 	
-	wxButton* btn = new wxButton(this, 15001, "Apply", wxPoint(10, 65), wxSize(size.x - 20, 30));
+	m_blurAmtInput = new cFloatField(this, wxID_ANY, "Amount", wxRect(10, 5, 10, 5), wxPoint(10, 35), wxSize(size.x - 10, 20));
+	m_blurRadiusInput = new cIntField(this, wxID_ANY, "Radius", 7, wxRect(10, 5, 10, 5), wxPoint(10, 60), wxSize(size.x - 10, 20));
+	
+	wxButton* btn = new wxButton(this, 15001, "Apply", wxPoint(10, 90), wxSize(size.x - 20, 30));
+
+	m_mainSizer->Add(m_blurAmtInput, 1, wxEXPAND);
+	m_mainSizer->Add(m_blurRadiusInput, 1, wxEXPAND);
+	m_mainSizer->Add(btn, 1, wxEXPAND);
+	m_mainSizer->SetMinSize(wxSize(size.x, GetWidgetHeight()));
+
+	SetSizerAndFit(m_mainSizer);
+	Refresh();
 }
 
 cSBBlurWidget::~cSBBlurWidget()
 {
+	
 }
 
 int cSBBlurWidget::GetWidgetHeight()
 {
-	return 105;
+	return 130;
 }
 
 bool cSBBlurWidget::ApplyEffect(wxImage& image)
 {
-	float value = std::stof(m_textInput->GetValue().ToStdString());
+	float value = m_blurAmtInput->GetValue();
+	int radius = m_blurRadiusInput->GetValue();
+	if (radius % 2 == 0)
+	{
+		wxMessageBox("Blur Radius should be an odd number!");
+		return false;
+	}
 
 	Mat mat = mat_from_wx(image);
 	Mat matBlur;
-	GaussianBlur(mat, matBlur, Size(7, 7), value, 0);
+	GaussianBlur(mat, matBlur, Size(radius, radius), value, 0);
 	image = wx_from_mat(matBlur);
 
 	return true;

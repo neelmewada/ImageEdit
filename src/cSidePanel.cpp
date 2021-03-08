@@ -13,10 +13,9 @@ cSidePanel::cSidePanel(wxFrame* parent, cImagePanel* imagePanel, wxWindowID wini
 
 	m_mainSizer = new wxBoxSizer(wxVERTICAL);
 	cSBBlurWidget* widget = new cSBBlurWidget(this, m_imagePanel, minSize);
-	cSBBlurWidget* widget2 = new cSBBlurWidget(this, m_imagePanel, minSize);
 
 	m_mainSizer->Add(widget, 0, wxEXPAND | wxTOP | wxLEFT | wxRIGHT, 20);
-	m_mainSizer->Add(widget2, 0, wxEXPAND | wxALL, 20);
+	//m_mainSizer->Add(widget2, 0, wxEXPAND | wxALL, 20);
 
 	SetSizerAndFit(m_mainSizer);
 }

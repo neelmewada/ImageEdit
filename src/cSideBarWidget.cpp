@@ -36,7 +36,7 @@ cSideBarWidget::cSideBarWidget(cSidePanel* parent, wxString title, cImagePanel* 
 
 	m_mainSizer->Add(m_headerField, 0, wxEXPAND | wxTOP | wxLEFT | wxRIGHT, 0);
 
-	SetSizerAndFit(m_mainSizer);
+	//SetSizerAndFit(m_mainSizer);
 }
 
 cSideBarWidget::~cSideBarWidget()

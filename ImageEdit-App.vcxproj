@@ -20,6 +20,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\controls\cFloatField.h" />
+    <ClInclude Include="src\controls\cIntField.h" />
     <ClInclude Include="src\widgets\cSBBlurWidget.h" />
     <ClInclude Include="src\cApp.h" />
     <ClInclude Include="src\cMainFrame.h" />
@@ -32,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\controls\cFloatField.cpp" />
+    <ClCompile Include="src\controls\cIntField.cpp" />
     <ClCompile Include="src\utils.cpp" />
     <ClCompile Include="src\widgets\cSBBlurWidget.cpp" />
     <ClCompile Include="src\cApp.cpp" />

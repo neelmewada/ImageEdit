@@ -6,6 +6,10 @@
 #include "../cSideBarWidget.h"
 #include "../include.h"
 
+#include "../controls/cFloatField.h"
+#include "../controls/cIntField.h"
+
+
 class cSBBlurWidget : public cSideBarWidget
 {
 public:
@@ -16,7 +20,8 @@ protected:
 	cSidePanel* m_parent;
 	cImagePanel* m_imagePanel;
 	cHeaderField* m_headerField;
-	wxTextCtrl* m_textInput;
+	cFloatField* m_blurAmtInput;
+	cIntField* m_blurRadiusInput;
 
 public:
 	wxString title;
